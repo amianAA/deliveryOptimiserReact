@@ -1,0 +1,17 @@
+.root {
+  height: 60px;
+  display: flex;
+  background-color: #4a576e;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  color: #fff;
+  padding: 1em;
+  text-shadow: #999 0.1em 0.1em 0.2em;
+}
+
+.logo {
+  margin: 0;
+  color: #fff;
+  font-size: 21pt;
+}
