@@ -29,7 +29,6 @@
     "normalize-css": "^2.3.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-google-autocomplete": "^1.0.13",
     "react-router-dom": "^4.1.1"
   }
 }
