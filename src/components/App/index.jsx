@@ -6,24 +6,12 @@ import Header from '../Header'
 import Main from '../Main'
 
 class App extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      position: {
-        lat: '',
-        lon: '',
-        address: '',
-      }
-    }
-  }
 
   render() {
     return (
       <div>
-        <Header/>
-        <div className="container-fluid">
-          <Main position= {this.state.position}/>
-        </div>
+        <Header />
+        <Main />
       </div>
     )
   }

@@ -1,16 +1,15 @@
-import React, { Component } from 'react'
-import LocationContainer from '../LocationContainer'
-
+import React, {Component} from 'react'
+import SearchContainer from '../SearchContainer'
+import styles from './style.css'
 
 class Main extends Component {
-  constructor(props) { // pasa las props del padre
-    super(props) // llama al component padre
-  }
 
-  render () {
+  render() {
     return (
-      <div>
-      <LocationContainer position = {this.props.position} />
+      <div className="container-fluid">
+        <div className="row">
+          <SearchContainer />
+        </div>
       </div>
     )
   }
