@@ -29,10 +29,7 @@
     "normalize-css": "^2.3.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-<<<<<<< HEAD
     "react-geosuggest": "^2.5.0",
-=======
->>>>>>> 81806160acb05cf4915af9280b7b048d59122213
     "react-router-dom": "^4.1.1"
   }
 }
