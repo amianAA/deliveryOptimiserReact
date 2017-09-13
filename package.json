@@ -25,11 +25,15 @@
   },
   "dependencies": {
     "firebase": "^3.6.1",
+    "google-map-react": "^0.24.0",
+    "google-maps-react": "^1.1.0",
     "moment": "^2.16.0",
     "normalize-css": "^2.3.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-geolocation": "^1.0.3",
     "react-geosuggest": "^2.5.0",
+    "react-google-maps": "^7.1.0",
     "react-router-dom": "^4.1.1"
   }
 }

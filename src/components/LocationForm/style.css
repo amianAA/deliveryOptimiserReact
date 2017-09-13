@@ -1,5 +1,8 @@
+.map{
+  height: 300px;
+  width: 300px;
+}
 .geoform {
-  width: 35%;
 }
 
 .geosuggest {

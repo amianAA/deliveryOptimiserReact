@@ -9,6 +9,7 @@ class Main extends Component {
       <div className="container-fluid">
         <div className="row">
           <SearchContainer />
+
         </div>
       </div>
     )
