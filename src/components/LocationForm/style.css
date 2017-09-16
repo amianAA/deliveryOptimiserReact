@@ -1,8 +1,38 @@
-.map{
-  height: 300px;
-  width: 300px;
+.left-column {
+  background-color: #4A576E;
+  border-radius: 5px;
+  margin: 10px;
+  color: white;
+  font-size: 1.4em;
+  padding: 5px;
 }
-.geoform {
+
+.right-column{
+  background-color: #4A576E;
+  border-radius: 5px;
+  margin: 10px;
+  color: white;
+  font-size: 1.5em;
+  padding: 5px 10px;
+}
+
+#add-point-btn {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: black;
+}
+
+#map{
+  height: 300px;
+  width: 90%;
+  margin: 20px auto;
+}
+.geolocation {
+  background-color: #4A576E;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 10px;
+
 }
 
 .geosuggest {
@@ -17,7 +47,8 @@
   width: 100%;
   border: 2px solid transparent;
   box-shadow: 0 0 1px #3d464d;
-  padding: .5em 1em;
+  padding: .3em .5em;
+  font-size: 1.4em;
   -webkit-transition: border 0.2s, box-shadow 0.2s;
           transition: border 0.2s, box-shadow 0.2s;
 }
@@ -53,8 +84,7 @@
  * A geosuggest item
  */
 .geosuggest__item {
-  font-size: 18px;
-  font-size: 1rem;
+  font-size: 1.5em;
   padding: .5em .65em;
   cursor: pointer;
 }

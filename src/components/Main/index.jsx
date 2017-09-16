@@ -7,10 +7,7 @@ class Main extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <div className="row">
           <SearchContainer />
-
-        </div>
       </div>
     )
   }

@@ -1,6 +1,7 @@
 import React from 'react'
 import 'normalize-css'
 import styles from './style.css'
+import './bootstrap.min.css'
 
 import Header from '../Header'
 import Main from '../Main'

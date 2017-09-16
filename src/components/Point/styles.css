@@ -1,0 +1,12 @@
+.del-points{
+  text-align: left;
+    margin: 5px;
+}
+strong{
+  padding-right: 5px;
+}
+.calculate-btn, .delete-btn{
+  color: black;
+  height: 30px;
+  margin: 0 10px;
+}
