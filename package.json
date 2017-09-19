@@ -24,10 +24,16 @@
     "webpack-dev-server": "^2.7.1"
   },
   "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.18.1",
+    "express": "^4.15.4",
     "firebase": "^3.6.1",
     "google-map-react": "^0.24.0",
     "google-maps-react": "^1.1.0",
+    "javascript-lp-solver": "^0.4.5",
     "moment": "^2.16.0",
+    "node.io": "^0.5.1",
+    "nodemon": "^1.12.1",
     "normalize-css": "^2.3.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

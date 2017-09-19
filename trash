@@ -1,0 +1,117 @@
+// Se amplía la matriz para desdoblar el nodo original en dos: entrada y salida de la red
+for (row in distances) {
+  distances[row].push(distances[row][0])
+}
+
+let FO = '', // Función Objetivo
+  constraints = '', // Restricciones a las que se somete el modelo
+  varBoundaries = '', // Limites/tipos de las variables
+  d = distances.length - 1, // dimensión maxima
+  X = [0], // Conjuntos para el corte
+  nX = []
+for (var i = d; i > 0; --i) {
+  nX.push(i)
+}
+
+/* FUNCION OBJETIVO */
+FO += 'min:' // Sentido de la optimización
+for (var i in distances) { // i === filas
+  for (var j in distances[0]) { // j === columnas
+    if (distances[i][j] != 0 && j != 0) {
+      FO += ' ' + distances[i][j] + ' x' + i + j
+    }
+  }
+}
+console.log(FO)
+model.push(FO)
+
+/* RESTRICCIONES */
+
+// Se inyecta a la red una unidad desde nodo origen:
+for (var i in distances) {
+  for (var j in distances[0]) {
+    if (distances[i][j] != 0 && j!=0) {
+      constraints += 'x' + i + j + ' '
+    }
+  }
+  constraints += '= 1'
+  model.push(constraints)
+  constraints = ''
+}
+
+// Se recoge una unidad en el nodo destino:
+for (var k in distances){
+for (var i in distances) {
+  if (distances[i][d-k] != 0) {
+    constraints += 'x' + i + (d-k) + ' '
+  }
+}
+constraints += '= 1'
+model.push(constraints)
+constraints = ''
+}
+/*  // No acumulación en los nodos:
+auxStr2 = ''
+auxStr = ''
+for (var k in distances) {
+  for (var i in distances) {
+    if (i != k && k != 0) {
+      auxStr2 += '-x' + i + k + ' '
+    }
+  }
+  for (var j in distances[0]) {
+    if (k != j && k != 0 && j != 0) {
+      auxStr += 'x' + k + j + ' '
+    }
+  }
+  auxStr += auxStr2
+  auxStr != ''
+    ? (auxStr += '= 0', model.push(auxStr))
+    : null
+  auxStr = ''
+  auxStr2 = ''
+}
+*/auxStr = ''
+// Cortes en arcos para imponer flujo continuo:
+for (var k in distances) {
+  for (var i in X) {
+    for (var j in nX) {
+      auxStr += 'x' + X[i] + nX[j] + ' -x' + nX[j] + X[i] + ' '
+    }
+  }
+  model.push(auxStr + ' >= 1')
+  auxStr = ''
+  X.push(nX.pop())
+}
+
+// Obligación de recorrer todos los puntos:
+for (var i in distances) {
+  for (var j in distances[0]) {
+    if (distances[i][j] != 0 && j != 0) {
+    //  constraints += 'x' + i + j + ' '
+      model.push('x' + i + j + ' <= 1') // Se aprovecha el bucle para acotar las variables superiormente
+    }
+  }
+}
+//  constraints += '>= ' + d
+//  model.push(constraints)
+//  constraints = ''
+
+/* DEFINICIÓN DE TIPOS DE VARIABLES */
+
+// Forzando visitar todos los nodos:
+for (var i in distances) {
+  for (var j in distances[0]) {
+    if (distances[i][j] != 0 && j != 0) {
+      model.push('int x' + i + j)
+    }
+  }
+}
+
+// Reformat to JSON model
+console.log(model)
+model = solver.ReformatLP(model);
+
+// Solve the model
+var solution = solver.Solve(model)
+console.log(solution)

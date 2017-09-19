@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import Geosuggest from 'react-geosuggest'
 import DeliveryPoints from '../DeliveryPoints'
 import styles from './style.css'
+import axios from 'axios'
 
 
 class LocationForm extends React.Component {
@@ -32,6 +33,7 @@ constructor(){
   this.calculateRoute = this.calculateRoute.bind(this)
   this.getDistances = this.getDistances.bind(this)
   this.formatMatrices = this.formatMatrices.bind(this)
+  this.sendData = this.sendData.bind(this)
 }
 
 updatePosition(position){ // Función para actualizar el estado "currentLocation"
@@ -132,7 +134,9 @@ calculateRoute(){
   // llamar a la API de gMaps para obtener distancias
   this.getDistances(this.state.routeData)
   // conectar con el back pasando this.state.routeData
+    // De acuerdo a la documentación, hay que crear el script para la resolución del modelo y en el importar el archivo LP (editado previamente con node IO)
 }
+
 getDistances(routePoints){ // Conecta a la API de gMaps para obtener la matriz de distancias entre los puntos de ruta
   let pointsCoords = []
   var formatMatrices = this.formatMatrices
@@ -169,6 +173,17 @@ formatMatrices(distanceData){ // Función llamada para crear las matrices de tie
     distanceCol.push(distanceRow)
     timeCol.push(timeRow)
   } this.setState({distanceMatrix: distanceCol, timeMatrix: timeCol})
+  this.sendData(this.state.distanceMatrix)
+}
+
+sendData(distances){ // Envía los datos al back
+  axios.post('/api/solve', {key:'distanceMatrix', value: distances})
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 }
 
 render(){
