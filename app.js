@@ -21,7 +21,7 @@ app.get('*', (req, res) => {
 
 app.post('/api/solve', (req, res) => {
    var data = modelConstructor(req.body.value)
-   //console.log(res.body)
+   console.log(data)
    res.status(200).json(data)
    //console.log(res)
   //res.send('datos recibidos: ') // Con esto se devuelve el resultado

@@ -21,8 +21,8 @@ module.exports = {
   module: {
     loaders: [
       { test: /(\.js|jsx)$/, exclude: /node_modules/, loaders: ['babel-loader'] },
-      { test: /\.css$/, exclude: '/src/components/LocationForm/', loader: `style-loader!css-loader` } //?${cssModules}
-
+      { test: /\.css$/, exclude: '/src/components/LocationForm/', loader: `style-loader!css-loader` }, //?${cssModules}
+      { test: /\.(png|jpg|gif)$/, use: [{ loader: 'file-loader', options: {} }]}
     ]
   },
 

@@ -1,27 +1,24 @@
 import React from 'react'
 import styles from './style.css'
 import Point from '../Point'
+import img from './logo.png'
 
 class DeliveryPoints extends React.Component {
   constructor(props){
     super(props)
-    this.deletePoint = this.deletePoint.bind(this)
-  }
-  deletePoint(point){
-    console.log(point)
-    /*delPoints = this.props.points
-    for (var point in this.props.points){
-      if (this.props.points[point].key==pointId) {
-        newRoute = this.props.points.splice
-        this.props.deleteOnePoint()
-      }
-    }*/
-
   }
 
   render() {
-    return ( // onClick= {delete point}
+    return (
      <div className='delivery-points'>
+        <div className='row justify-content-center'>
+        { this.props.added
+          ? <button className='calculate-btn' onClick={this.props.calculateRoute}>Calcular Ruta</button>
+          : (<div className='row justify-content-center'>
+              <img src={img} alt='logo' />
+              <p className='middle-text'> Bienvenid@ a la aplicación <strong><em>deliveryOptimiser.</em></strong></p>
+            </div>) }
+        </div>
         {this.props.points.map (point => {
           return (
           <Point
@@ -31,10 +28,10 @@ class DeliveryPoints extends React.Component {
           lat= {point.lat}
           lng= {point.lng}
           deletePoint = {()=>this.props.deleteOnePoint(point)}
+          solved = {this.props.solved}
           />
           )
         })}
-        { this.props.added ? <button className='calculate-btn' onClick={this.props.calculateRoute}>Calcular Ruta</button> : null }
  </div>
   )}
 }

@@ -1,1 +1,45 @@
+.calculate-btn, .delete-btn {
+  color: #FFF;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 3px;
+  background-color: #78909C;
+  border: 2px solid #37474F;
+  outline: none;
+}
 
+.calculate-btn {
+  height: 40px;
+  margin-left: 50px;
+  width: 200px;
+  margin: 10px;
+}
+.calculate-btn:hover, .delete-btn:hover, .calculate-btn:active, .delete-btn:active, .calculate-btn:focus, .delete-btn:focus {
+  background-color: #607D8B;
+  outline: none;
+}
+
+.delete-btn {
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.middle-text {
+  font-size: 24px;
+  text-align: center;
+  vertical-align: middle;
+  margin: 20px;
+  margin-top: 10px;
+}
+
+.right-text {
+  font-size: 18px;
+  text-align: left;
+  vertical-align: middle;
+  margin: 0 20px;
+  margin-top: 5%;
+  color: white;
+}

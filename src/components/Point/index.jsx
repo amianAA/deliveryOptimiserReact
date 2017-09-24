@@ -8,22 +8,30 @@ class Point extends React.Component {
 
 render(){
   return(
-  <div className='row del-points'>
-    <div className='col-1'>
-      <strong>Id:</strong> {this.props.id+1}
-    </div>
-    <div className='col-5 route-data'>
+  <div className='row mt-3'>
+    <div className='col-3'>
       <div className='row'>
-        <strong>Dirección: </strong> {this.props.address}
+        <div className='col-6'>
+            <button className='delete-btn ml-3 pb-3' onClick={()=>this.props.deletePoint(this.props)}>x</button>
+        </div>
+        <div className='col-6'>
+          <strong className='id-number'>{this.props.id+1}.-</strong>
+        </div>
       </div>
+  </div>
+    <div className='col route-data'>
       <div className='row'>
-          <strong>Coords: </strong> ({this.props.lat}, {this.props.lng})
+        {this.props.address}
       </div>
     </div>
-    <button className='delete-btn' onClick={()=>this.props.deletePoint(this.props)}>X</button>
   </div>
 )
 }
-
+/*
+Eliminidas las cordenadas:
+<div className='row'>
+    <strong>Coords: </strong> ({this.props.lat}, {this.props.lng})
+</div>
+*/
 }
 export default Point
